@@ -38,8 +38,11 @@ function load_mailbox(email, mailbox) {
   .then(response => response.json())
   .then(emails => {
   // Print emails
-  console.log(emails);
-  email.forEach(email => show_email(email, mailbox));
+  console.log(email);
+  emails.forEach(email => 
+
+    document.querySelector('#emails-view').innerHTML = email);
+    show_email(email, mailbox);
   // ... do something else with emails ...
  
 });
@@ -48,8 +51,6 @@ function load_mailbox(email, mailbox) {
 }
 
 function send_email(email, mailbox) {
-  
-  document.querySelector('#emails-view').innerHTML = email;
 
   const recipient = document.querySelector('compose-recipients').value;
   const subject = document.querySelector('compose-subject').value;
